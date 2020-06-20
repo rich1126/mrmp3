@@ -10,10 +10,10 @@ The main function the does the following:
 """
 
 def main():
-    input_audio = "temp/"+sys.argv[1]+".wav"
-    input_data = "temp/"+sys.argv[2]+".txt"
-    output_audio = "temp/"+sys.argv[3]+".mp3"
-    output_data = "temp/FF"+sys.argv[2]+".txt"
+    input_audio = sys.argv[1]
+    input_data = sys.argv[2]
+    output_audio = sys.argv[3]
+    output_data = "FF"+sys.argv[2]  # Prepends 'FF' to denote ffmpeg text
 
     chapter_list, header_list = mc.parse_edit(input_data)
     
