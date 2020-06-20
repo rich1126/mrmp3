@@ -38,3 +38,17 @@ If you really want the executable, you can find it [here](https://www.dropbox.co
 
 ## Requirements
 Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3.
+
+## Images
+
+The basic user interface is, well, basic. Click on the browse button to browse for files, or just type in the paths yourself.
+
+![Basic Interface](/images/mrmp3_input.png)
+
+It'll say "Processing" while going (although if you run it from the command line, you'll see ffmpeg's own progress meter.)
+
+![Processing](/images/mrmp3_processing.png)
+
+And it'll tell you how speedy things went along. Sorry I'm not (yet) cool enough to multithread the LAME encoder, like Marco Arment was when writing Forecast.
+
+![Complete](/images/mrmp3_complete.png)
