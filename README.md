@@ -39,9 +39,11 @@ I use this format because it's what I already did while editing to share timesta
 Clone the repository
 `git clone https://github.com/rich1126/mrmp3`. Then, run `python3 mrmp3_cl.py [input_audio] [metadata_file] [output_audio]` from the command line, or `python3 mrmp3_gui.py` for the GUI version. Feel free to make tweaks to `functions/encode_mp3.py` if you prefer encoding at a different rate.
 
+Also, note that if Qt is giving trouble for some reason, you can change the import in `mrmp3_gui.py` to be `import PySimpleGUI as sg` and everything will run the same, but use Tkinter to render everything.
+
 If you make tweaks and want a single executable version, I used [Pyinstaller](http://www.pyinstaller.org/) to create the executable: `pyinstaller --onefile mrmp3_gui.py`. Note: I'm on Ubuntu 20.04.
 
-If you really want the executable, you can find it [here](https://www.dropbox.com/s/drvo8unggdsml0s/mrmp3_gui?dl=0) (on Dropbox). I'm new to any sort of software, so that's what I've got for you!
+If you really want the executable, you can find it [here](https://www.dropbox.com/s/drvo8unggdsml0s/mrmp3_gui?dl=0) (on Dropbox). I'm new to any sort of software, so that's what I've got for you! (I may make a Snap and/or Flatpack if I can figure out how.)
 
 ## Requirements
 Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3.
