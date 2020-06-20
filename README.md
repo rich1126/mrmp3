@@ -1,6 +1,13 @@
 # mrmp3
 Small Linux utility to encode id3v2 version 3 MP3 chapters and metadata into MP3 files. Aimed at podcasting.
 
+If you really like ffmpeg and happened upon this because of MP3 chapters, all I'm doing is creating a metadata file that is actually usable by ffmpeg, then running this bash file, which took me way too long to formulate.
+```
+#!/bin/bash
+
+ffmpeg -i $1 -i $2 -map_metadata 1 -c:a libmp3lame -ar 44100 -b:a 64k -id3v2_version 3 -f mp3 $3
+```
+
 ## Functionality
 
 Given some audio file (typically a \*.wav after editing, but could be \*.mp3), a human-readable metadata file (described below) and a chosen output, **mrmp3** will create a metadata file readable by ffmpeg, and use the LAME MP3 encoder, through ffmpeg, to encode your chapters into the MP3 file. It will encode at a bitrate of 64k, and assumes the project is at 44100 HZ, but this can be changed if you care enough to dig into `encode_mp3.py`. 
