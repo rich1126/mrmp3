@@ -42,7 +42,7 @@ def main():
             [sg.Text('Input Data', size=(10,1),font='Times 14'),\
                     sg.InputText(key="dataIN",size=(50,1)), sg.FileBrowse(\
                     initial_folder="/home",target="dataIN")],
-            [sg.Text('To Encode', size=(10,1),font='Times 14'),\
+            [sg.Text('Encode To', size=(10,1),font='Times 14'),\
                     sg.InputText(key="audioOUT",size=(50,1)),\
                     sg.FolderBrowse(initial_folder="/home",target="audioOUT")],
             [sg.Submit('Encode',size=(10,1)), sg.Cancel('Quit',size=(10,1))]]
