@@ -29,12 +29,12 @@ I use this format because it's what I already did while editing to share timesta
 
 ## Usage
 
-In the repository is the prebuilt executable, which you should be able to just download and run, given you have the requirements listed below. This uses PySimpleGUIQt, and will always assume the project is at 44100 HZ, and encodes at a 64k bitrate.
+Clone the repository
+`git clone https://github.com/rich1126/mrmp3`. Then, run `python3 mrmp3_cl.py [input_audio] [metadata_file] [output_audio]` from the command line, or `python3 mrmp3_gui.py` for the GUI version. Feel free to make tweaks to `functions/encode_mp3.py` if you prefer encoding at a different rate.
 
-If you prefer, you can clone the repository
-`git clone https://github.com/rich1126/mrmp3` and tweak `encode_mp3.py` to adjust the encoding settings you want. Then, run `python3 mrmp3_cl.py [input_audio] [metadata_file] [output_audio]` from the command line, or `python3 mrmp3_gui.py` for the GUI version.
+If you make tweaks and want a single executable version, I used [Pyinstaller](http://www.pyinstaller.org/) to create the executable: `pyinstaller --onefile mrmp3_gui.py`. Note: I'm on Ubuntu 20.04.
 
-If you make tweaks and want a single executable version, I used [Pyinstaller](http://www.pyinstaller.org/) to create the executable: `pyinstaller --onefile mrmp3_gui.py`.
+If you really want the executable, you can find it [here](https://www.dropbox.com/s/drvo8unggdsml0s/mrmp3_gui?dl=0) (on Dropbox). I'm new to any sort of software, so that's what I've got for you!
 
 ## Requirements
 Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3.
