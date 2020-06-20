@@ -1,6 +1,6 @@
 import functions.encode_mp3 as emp3
 import functions.make_chapters as mc
-import PySimpleGUIQt as sg
+import PySimpleGUIQt as sg  ## Can change to PySimpleGUI for Tkinter
 import time
 
 
@@ -36,14 +36,14 @@ def main():
     sg.theme('Reddit')
 
     layout = [[sg.Text('', font=('Times', 12), key='timer')],
-            [sg.Text('Input Audio', size=(10,1),font='Times 14'),\
-                    sg.InputText(key="audioIN",size=(50,1)),\
+            [sg.Text('Input Audio', size=(10,1),font='Times 14'),
+                    sg.InputText(key="audioIN",size=(50,1)),
                     sg.FileBrowse(initial_folder="/home",target="audioIN")],
-            [sg.Text('Input Data', size=(10,1),font='Times 14'),\
-                    sg.InputText(key="dataIN",size=(50,1)), sg.FileBrowse(\
-                    initial_folder="/home",target="dataIN")],
-            [sg.Text('Encode To', size=(10,1),font='Times 14'),\
-                    sg.InputText(key="audioOUT",size=(50,1)),\
+            [sg.Text('Input Data', size=(10,1),font='Times 14'),
+                    sg.InputText(key="dataIN",size=(50,1)), 
+                    sg.FileBrowse(initial_folder="/home",target="dataIN")],
+            [sg.Text('Encode To', size=(10,1),font='Times 14'),
+                    sg.InputText(key="audioOUT",size=(50,1)),
                     sg.FolderBrowse(initial_folder="/home",target="audioOUT")],
             [sg.Submit('Encode',size=(10,1)), sg.Cancel('Quit',size=(10,1))]]
 
@@ -75,7 +75,7 @@ def main():
             
             ## Calculate and report encoding completion time           
             final_time = int(round(time.time()*100)) - start_time
-            format_time = '{:02d}:{:02d}.{:02d}'.format((final_time // 100) // 60,\
+            format_time = '{:02d}:{:02d}.{:02d}'.format((final_time // 100) // 60,
                     (final_time // 100) % 60, final_time % 100)
 
             window['timer'].update(f"Completed in {format_time}.")
