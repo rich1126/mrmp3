@@ -1,5 +1,5 @@
 # mrmp3
-Small Linux utility to encode id3v2 version 3 MP3 chapters and metadata into MP3 files. Aimed at podcasting.
+Small utility to encode id3v2 version 3 MP3 chapters and metadata into MP3 files. Aimed at podcasting.
 
 If you really like ffmpeg and happened upon this because of MP3 chapters, all I'm doing is creating a metadata file that is actually usable by ffmpeg, then running this bash file, which took me way too long to formulate.
 ```
