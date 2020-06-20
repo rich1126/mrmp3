@@ -31,15 +31,15 @@ def chapter_add(chapter_name, start_time, end_time):
     start_time = get_sec(start_time)*1000
     end_time = get_sec(end_time)*1000
 
-    chapter_list = ["[CHAPTER]\n","TIMEBASE=1/1000\n",f"START={start_time}\n",\
+    chapter_list = ["[CHAPTER]\n","TIMEBASE=1/1000\n",f"START={start_time}\n",
             f"END={end_time}\n", f"title={chapter_name}"]
 
     return chapter_list
 
 # Creates a list containing the metadata information for the header
 def header(album, artist, title, total_len, date):
-    header_list = [";FFMETADATA1\n", f"album={album}", f"artist={artist}",\
-            f"title={title}", f"TLEN={total_len}\n", "encoded_by=mrmp3\n",\
+    header_list = [";FFMETADATA1\n", f"album={album}", f"artist={artist}",
+            f"title={title}", f"TLEN={total_len}\n", "encoded_by=mrmp3\n",
             f"date={date}", "encoder=lame\n"]
 
     return header_list
@@ -51,11 +51,13 @@ def parse_edit(input_file):
     line_list = [line for line in inFile]
     inFile.close()
     
-    header_list = header(line_list[0], line_list[1], line_list[2], \
+    ## Generate header list
+    header_list = header(line_list[0], line_list[1], line_list[2],
             get_sec(line_list[3])*1000, line_list[4])
-
+    
     chapter_list = []
-
+    
+    ## Generate chapter list, starting on line 7 of metadata file
     for i in range(len(line_list[6:-1])):
         [start_time, chapter_name] = line_list[i+6].split(' - ',1)
         end_time = line_list[i+7].strip().split(' - ',1)[0]
