@@ -6,8 +6,8 @@ using the created metadata txt file.
 import subprocess
 
 def encodeMP3(input_audio, metadata_file, output_audio):
-    audio_encode=["ffmpeg", '-i', input_audio, '-i', metadata_file,'-map_metadata','1','-c:a',\
-            'libmp3lame','-ar','44100','-b:a','64k','-id3v2_version', '3','-f',\
+    audio_encode=["ffmpeg", '-i', input_audio, '-i', metadata_file,'-map_metadata','1','-c:a',
+            'libmp3lame','-ar','44100','-b:a','64k','-id3v2_version', '3','-f',
             'mp3',output_audio]
 
     print("STARTING")
