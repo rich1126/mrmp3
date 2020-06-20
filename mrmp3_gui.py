@@ -1,6 +1,5 @@
 import functions.encode_mp3 as emp3
 import functions.make_chapters as mc
-import sys
 import PySimpleGUIQt as sg
 import time
 
