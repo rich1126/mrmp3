@@ -52,7 +52,8 @@ Also, note that if Qt is giving trouble for some reason, you can change the impo
 If you make tweaks and want a single executable version, I used [Pyinstaller](http://www.pyinstaller.org/) to create the executable: `pyinstaller --onefile mrmp3_gui.py`. Note: I'm on Ubuntu 20.04.
 
 ## Requirements
-Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3. If running the GUI version, you'll need `PySimpleGUIQt`, or just `PySimpleGUI` if you change the import statement in `mrmp3_gui.py` to use the same.
+
+Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3. If running the GUI version, you'll need `PySimpleGUIQt`, or just `PySimpleGUI` if you change the import statement in `mrmp3_gui.py` to use the same. Both can be installed using pip.
 
 ## Images
 
