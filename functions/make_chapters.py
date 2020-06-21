@@ -20,14 +20,13 @@ h:mm:ss - Chapter 2 title
 """
 
 
-# A function to get the seconds out of a regular time-stamp
 def get_sec(time_str):
     """Get Seconds from time."""
     h, m, s = time_str.strip().split(':')
     return int(h) * 3600 + int(m) * 60 + int(s)
 
-# Creates a list containing the metadata information for one chapter
 def chapter_add(chapter_name, start_time, end_time):
+    """Makes a list containing one chapter's worth of metadata."""
     start_time = get_sec(start_time)*1000
     end_time = get_sec(end_time)*1000
 
@@ -36,17 +35,16 @@ def chapter_add(chapter_name, start_time, end_time):
 
     return chapter_list
 
-# Creates a list containing the metadata information for the header
 def header(album, artist, title, total_len, date):
+    """Makes a list containing header metadata: album, artist, etc."""
     header_list = [";FFMETADATA1\n", f"album={album}", f"artist={artist}",
             f"title={title}", f"TLEN={total_len}\n", "encoded_by=mrmp3\n",
             f"date={date}", "encoder=lame\n"]
 
     return header_list
 
-# A function to take the standard mrmp3 "editing metadata" format
-# and turn it into the prescribed ffmpeg metadata
 def parse_edit(input_file):
+    """Takes human-readable text and turn it to ffmpeg text."""
     inFile = open(input_file,'r')
     line_list = [line for line in inFile]
     inFile.close()
@@ -72,8 +70,8 @@ def parse_edit(input_file):
     return chapter_list, header_list
 
 
-# Creates metadata file assuming a list of chapter_list items and a header list
 def create_file(output, chapterList, header):
+    """Creates metadata file given list of chapter data, header data"""
     output_file = open(output,'w')
     for line in header:
         output_file.write(line)
