@@ -7,7 +7,7 @@ If you really like ffmpeg and happened upon this because of MP3 chapters, all I'
 
 ffmpeg -i $1 -i $2 -map_metadata 1 -c:a libmp3lame -ar 44100 -b:a 64k -id3v2_version 3 -f mp3 $3
 ```
-If adding data to existing MP3 file with no need to encode (`-d` in CL version, or `Datafy` in GUI), it runs this ffmpeg command:
+If adding data to an existing MP3 file with no need to encode (`-d` in CL version, or `Datafy` in GUI), it runs this ffmpeg command:
 ```
 #!/bin/bash
 
@@ -20,7 +20,7 @@ Given some audio file (typically a \*.wav after editing, but could be \*.mp3), a
 
 Alternatively, if you use some other tool to encode your MP3 (I recently discovered [fre:ac](https://freac.org/)) you can instead use the "datafy" functionality, which takes your metadata file and just adds the metadata to your MP3.
 
-This is mainly intended for podcasts, and is meant as a dirty replacement for [Forecast](https://overcast.fm/forecast), which is Mac-only. After hunting around, it seems there are essentially no programs that support adding *chapter markers* to MP3 files, despite it being supported in the MP3 spec for years. 
+This is mainly intended for podcasts, and is meant as a dirty replacement for [Forecast](https://overcast.fm/forecast), which is Mac-only. After hunting around, it seems there are essentially no programs that support adding *chapter markers* to MP3 files, despite it being supported in the MP3 spec for years. The only ones I found are paid, online services. No point in that.
 
 ## Metadata File Format
 
@@ -56,16 +56,18 @@ Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://f
 
 ## Images
 
-*Will update this to reflect new Datafy button.*
-
 The basic user interface is, well, basic. Click on the browse button to browse for files, or just type in the paths yourself.
 
 ![Basic Interface](/images/mrmp3_input.png)
 
-It'll say "Processing" while going (although if you run it from the command line, you'll see ffmpeg's own progress meter.)
+It'll say "Processing" while going (although if you run it from the command line, you'll see ffmpeg's own progress meter as well.)
 
 ![Processing](/images/mrmp3_processing.png)
 
-And it'll tell you how speedy things went along. Sorry I'm not (yet) cool enough to multithread the LAME encoder, like Marco Arment was when writing Forecast.
+And it'll tell you how speedy things went along. Sorry I'm not (yet) cool enough to multithread the LAME encoder, like Marco Arment was when writing Forecast, or the [SuperFast](https://github.com/enzo1982/superfast) encoders used for fre:ac. 
 
-![Complete](/images/mrmp3_complete.png)
+![Encoded](/images/mrmp3_encoded.png)
+
+Luckily, adding data alone to an MP3 is rapid indeed.
+
+![Datafied](/images/mrmp3_datafied.png)
