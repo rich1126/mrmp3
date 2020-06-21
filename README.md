@@ -46,7 +46,7 @@ If you make tweaks and want a single executable version, I used [Pyinstaller](ht
 If you really want the executable, you can find it [here](https://www.dropbox.com/s/drvo8unggdsml0s/mrmp3_gui?dl=0) (on Dropbox). I'm new to any sort of software, so that's what I've got for you! (I may make a Snap and/or Flatpack if I can figure out how.)
 
 ## Requirements
-Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3.
+Uses the [LAME MP3 encoder](https://lame.sourceforge.io/) and [ffmpeg](https://ffmpeg.org/). Written in Python 3 using `PySimpleGUIQt`, although it's easy to change to `PySimpleGUI` for wider device support; both can be installed using pip. 
 
 ## Images
 
