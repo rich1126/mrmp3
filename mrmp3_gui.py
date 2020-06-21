@@ -29,6 +29,7 @@ Main function
         
     - Calls the encodeMP3 function, which is just a wrapper around a very long
       ffmpeg call to the command line
+    - Alternatively, can just add data to an existing mp3 with 'Datafy' button
     - Ends with a report on how long the encoding took
 """
 
@@ -45,7 +46,8 @@ def main():
             [sg.Text('Encode To', size=(10,1),font='Times 14'),
                     sg.InputText(key="audioOUT",size=(50,1)),
                     sg.FolderBrowse(initial_folder="/home",target="audioOUT")],
-            [sg.Submit('Encode',size=(10,1)), sg.Cancel('Quit',size=(10,1))]]
+            [sg.Submit('Encode',size=(10,1)), 
+                sg.Submit('Datafy',size=(10,1)), sg.Cancel('Quit',size=(10,1))]]
 
     window = sg.Window('mrmp3',layout)
 
@@ -78,7 +80,41 @@ def main():
             format_time = '{:02d}:{:02d}.{:02d}'.format((final_time // 100) // 60,
                     (final_time // 100) % 60, final_time % 100)
 
-            window['timer'].update(f"Completed in {format_time}.")
+            window['timer'].update(f"Encoded in {format_time}.")
+
+        ######### When User hits "Datafy" button ######### 
+        if event == "Datafy":
+            ## Get time for timing encoding
+            start_time = int(round(time.time() * 100))
+            
+            ## Get variables for dataMP3 call
+            input_audio = values["audioIN"]
+            input_data = values["dataIN"]
+            output_audio = values["audioOUT"]
+
+            
+            ## Update window to prepare for processing
+            window['timer'].Update('Processing...')
+            window.Refresh()
+
+            if values["audioIN"] == values["audioOUT"]:
+                window['timer'].update("WARNING: Output file cannot be same as input.")
+                window.Refresh()
+
+            else:
+                ## Make ffmpeg-readable data file
+                output_data = get_file(input_data)
+
+                ## Call ffmpeg to add data to mp3
+                emp3.dataMP3(input_audio, output_data, output_audio)
+                
+                ## Calculate and report encoding completion time           
+                final_time = int(round(time.time()*100)) - start_time
+                format_time = '{:02d}:{:02d}.{:02d}'.format((final_time // 100) // 60,
+                        (final_time // 100) % 60, final_time % 100)
+
+                window['timer'].update(f"Data added in {format_time}.")
+
 
     window.close()
 
