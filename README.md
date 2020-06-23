@@ -1,5 +1,15 @@
 # mrmp3
-Small utility to encode id3v2 version 3 MP3 chapters and metadata into MP3 files. Aimed at podcasting.
+
+## Contents
+* [What is this?](#what-is-this) 
+* [Functionality](#functionality)
+* [Metadata File Format](#metadata-file-format)
+* [Usage](#usage)
+* [Requirements](#requirements)
+* [Images](#images)
+
+## What is this?
+This is a small utility to encode id3v2 version 3 MP3 chapters and metadata into MP3 files. Aimed at podcasting.
 
 If you really like ffmpeg and happened upon this because of MP3 chapters, all I'm doing is creating a metadata file that is actually usable by ffmpeg. Then, if encoding to MP3 (`-e` in CL version, or `Encode` in GUI), it runs this ffmpeg command:
 ```
